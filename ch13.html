@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 13 - Why Do We Fall Ill</title>
+
+<style>
+  body{ margin:0; font-family: Arial, sans-serif; background:#eef3ff; color:#222; transition:0.3s; }
+  header{ background:linear-gradient(135deg,#4a90e2,#0055aa); padding:25px; text-align:center; font-size:30px; color:white; font-weight:bold; }
+  nav{ background:#002244; padding:12px; text-align:center; }
+  nav a{ color:white; margin:0 15px; text-decoration:none; font-size:18px; }
+  nav a:hover{ text-decoration:underline; }
+  section{ max-width:900px; margin:auto; padding:25px; }
+  .card{ background:white; padding:25px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.15); }
+  h1{ color:#003c99; }
+
+  .dark{ background:#0a0f1a; color:#e6e6e6; }
+  .dark .card{ background:#111827; color:#e6e6e6; }
+  .dark h1{ color:#5b98e7; }
+  .dark header{ background:linear-gradient(135deg,#1f487e,#002244); }
+  .dark #topBtn{ background:#5b98e7; }
+  .dark nav{ background:#000d1a; }
+  .dark nav a{ color:#aacbff; }
+
+  #topBtn{
+    position: fixed; bottom: 25px; right: 25px; padding: 12px 15px; border:none;
+    border-radius:50%; background:#003c99; color:white; font-size:18px; cursor:pointer;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2); transition:0.3s; z-index:99;
+  }
+
+  /* New Styles for Toggle Functionality */
+  .toggle-btn {
+    background: #003c99;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: background 0.3s, transform 0.1s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .toggle-btn:hover {
+    background: #0055aa;
+  }
+  .toggle-btn.active {
+    background: #4a90e2;
+  }
+  .collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background: #f7f7f7;
+    border-radius: 8px;
+    margin-top: -15px; 
+    padding: 0 25px;
+    border: 1px solid #ddd;
+    border-top: none;
+  }
+  .collapsible-content.open {
+    max-height: 5000px; 
+    padding: 25px;
+  }
+  .dark .collapsible-content {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #e6e6e6;
+  }
+  .arrow {
+    transition: transform 0.3s;
+    font-size: 1.2em;
+  }
+  .toggle-btn.active .arrow {
+    transform: rotate(180deg);
+  }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+  th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
+  th { background-color: #f0f0f0; color: #003c99; }
+  .dark th { background-color: #334155; color: #5b98e7; }
+</style>
+</head>
+<body>
+
+<header>
+  Class 9 Science Notes
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="ch1.html">Matter</a>
+  <a href="ch7.html">Motion</a>
+  <button id="mode-toggle" style="background:none; color:white; border:none; cursor:pointer;">☀️</button>
+</nav>
+
+<section>
+  <div class="card">
+    <h1>Why Do We Fall Ill?</h1>
+    <p style="color:#003c99; font-weight:bold; margin-bottom: 25px;">Chapter 13 | Biology</p>
+
+    <!-- DIAGRAM 1: Healthy vs Diseased Person -->
+    <img src="images/ch13_healthy_diseased.png" alt="Healthy vs diseased person" style="width:90%;display:block;margin:20px auto;border-radius:10px;">
+
+    <h2>Summary</h2>
+    <p>This chapter differentiates between being 'healthy' and being 'disease-free,' discusses causes of diseases (infectious and non-infectious), and modes of disease transmission.</p>
+
+    <!-- DETAILED NOTES SECTION - CLICK TO REVEAL -->
+    <button class="toggle-btn" data-target="details-ch13">
+      Detailed Notes
+      <span class="arrow">▼</span>
+    </button>
+
+    <div id="details-ch13" class="collapsible-content">
+      <!-- Detailed Notes Content -->
+      <div class="notes-container">
+        <h3>• Health and Disease</h3>
+        <ul>
+          <li><b>Health:</b> State of physical, mental, and social well-being.</li>
+          <li><b>Disease:</b> Disturbance in the structure or function of the body.</li>
+        </ul>
+
+        <h3>• Types of Diseases</h3>
+        <ul>
+          <li><b>Acute:</b> Short duration, severe symptoms (e.g., common cold).</li>
+          <li><b>Chronic:</b> Long duration, lasting effects (e.g., tuberculosis, diabetes).</li>
+        </ul>
+
+        <h3>• Causes of Diseases</h3>
+        <ul>
+          <li><b>Infectious:</b> Caused by pathogens (e.g., viruses, bacteria).</li>
+          <li><b>Non-infectious:</b> Internal causes (e.g., genetic disorders, poor diet, lifestyle).</li>
+        </ul>
+
+        <h3>• Infectious Agents</h3>
+        <p>Microorganisms causing infectious diseases:</p>
+        <table>
+          <tr><th>Agent</th><th>Type</th><th>Example Diseases</th></tr>
+          <tr><td>Bacteria</td><td>Prokaryote</td><td>Typhoid, Tuberculosis, Cholera</td></tr>
+          <tr><td>Virus</td><td>Non-cellular</td><td>Flu, COVID-19, Measles</td></tr>
+          <tr><td>Fungi</td><td>Eukaryote</td><td>Ringworm, Athlete's foot</td></tr>
+          <tr><td>Protozoa</td><td>Single-celled eukaryote</td><td>Malaria, Amoebiasis</td></tr>
+        </table>
+        [Image of different types of infectious agents (bacteria, virus, fungi, protozoa)]
+
+        <h3>• Transmission of Diseases</h3>
+        <ul>
+          <li>Air – coughs, sneezes (flu, tuberculosis)</li>
+          <li>Water – contaminated water (cholera, typhoid)</li>
+          <li>Vectors – mosquitoes, flies (malaria, dengue)</li>
+          <li>Direct contact – touching infected person (ringworm)</li>
+        </ul>
+
+        <h3>• Prevention</h3>
+        <ul>
+          <li>Vaccination to build immunity</li>
+          <li>Personal hygiene: washing hands, clean food and water</li>
+          <li>Use of mosquito nets, sanitizers</li>
+          <li>Balanced diet and regular exercise</li>
+        </ul>
+
+        <h3>• Role of Immune System</h3>
+        <p>Protects the body by identifying and destroying pathogens. Produces antibodies to fight infections.</p>
+
+        <h3>• Fun Facts</h3>
+        <ul>
+          <li>Vaccines prevent diseases like polio, measles, and COVID-19.</li>
+          <li>Some bacteria are beneficial for digestion (gut flora).</li>
+          <li>Non-communicable diseases are on the rise due to sedentary lifestyles and unhealthy diet.</li>
+        </ul>
+      </div>
+      <!-- End Detailed Notes Content -->
+    </div>
+    <!-- END DETAILED NOTES SECTION -->
+
+  </div>
+</section>
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Function to toggle content visibility
+  function toggleSection(button) {
+    const targetId = button.getAttribute('data-target');
+    const content = document.getElementById(targetId);
+    
+    // Toggle the 'open' class for height and padding transition
+    content.classList.toggle('open');
+    button.classList.toggle('active');
+    
+    // Toggle the arrow direction
+    const arrow = button.querySelector('.arrow');
+    if (arrow) {
+      arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
+    }
+  }
+
+  // Attach toggle functionality to all buttons with class 'toggle-btn'
+  document.querySelectorAll('.toggle-btn').forEach(button => {
+    button.addEventListener('click', () => toggleSection(button));
+  });
+
+  // Dark Mode Toggle
+  const modeToggle = document.getElementById('mode-toggle');
+  const body = document.body;
+
+  modeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    modeToggle.textContent = body.classList.contains('dark') ? '🌙' : '☀️';
+  });
+</script>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 9 - Gravitation</title>
+
+<style>
+  body{ margin:0; font-family: Arial, sans-serif; background:#eef3ff; color:#222; transition:0.3s; }
+  header{ background:linear-gradient(135deg,#4a90e2,#0055aa); padding:25px; text-align:center; font-size:30px; color:white; font-weight:bold; }
+  nav{ background:#002244; padding:12px; text-align:center; }
+  nav a{ color:white; margin:0 15px; text-decoration:none; font-size:18px; }
+  nav a:hover{ text-decoration:underline; }
+  section{ max-width:900px; margin:auto; padding:25px; }
+  .card{ background:white; padding:25px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.15); }
+  h1{ color:#003c99; }
+
+  .dark{ background:#0a0f1a; color:#e6e6e6; }
+  .dark .card{ background:#111827; color:#e6e6e6; }
+  .dark h1{ color:#5b98e7; }
+  .dark header{ background:linear-gradient(135deg,#1f487e,#002244); }
+  .dark #topBtn{ background:#5b98e7; }
+  .dark nav{ background:#000d1a; }
+  .dark nav a{ color:#aacbff; }
+
+  #topBtn{
+    position: fixed; bottom: 25px; right: 25px; padding: 12px 15px; border:none;
+    border-radius:50%; background:#003c99; color:white; font-size:18px; cursor:pointer;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2); transition:0.3s; z-index:99;
+  }
+
+  /* New Styles for Toggle Functionality */
+  .toggle-btn {
+    background: #003c99;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: background 0.3s, transform 0.1s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .toggle-btn:hover {
+    background: #0055aa;
+  }
+  .toggle-btn.active {
+    background: #4a90e2;
+  }
+  .collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background: #f7f7f7;
+    border-radius: 8px;
+    margin-top: -15px; 
+    padding: 0 25px;
+    border: 1px solid #ddd;
+    border-top: none;
+  }
+  .collapsible-content.open {
+    max-height: 5000px; 
+    padding: 25px;
+  }
+  .dark .collapsible-content {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #e6e6e6;
+  }
+  .arrow {
+    transition: transform 0.3s;
+    font-size: 1.2em;
+  }
+  .toggle-btn.active .arrow {
+    transform: rotate(180deg);
+  }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+  th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
+  th { background-color: #f0f0f0; color: #003c99; }
+  .dark th { background-color: #334155; color: #5b98e7; }
+</style>
+</head>
+<body>
+
+<header>
+  Class 9 Science Notes
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="ch1.html">Matter</a>
+  <a href="ch7.html">Motion</a>
+  <button id="mode-toggle" style="background:none; color:white; border:none; cursor:pointer;">☀️</button>
+</nav>
+
+<section>
+  <div class="card">
+    <h1>Gravitation</h1>
+    <p style="color:#003c99; font-weight:bold; margin-bottom: 25px;">Chapter 9 | Physics</p>
+
+    <!-- DIAGRAM 1: Gravitational Force -->
+    <img src="images/ch9_gravitation.png" alt="Gravitational Force formula" style="width:90%;display:block;margin:20px auto;border-radius:10px;">
+
+    <h2>Summary</h2>
+    <p>This chapter explains the Universal Law of Gravitation, the concept of acceleration due to gravity ($g$), mass versus weight, and the application of these principles to free fall and orbital motion.</p>
+
+    <!-- DETAILED NOTES SECTION - CLICK TO REVEAL -->
+    <button class="toggle-btn" data-target="details-ch9">
+      Detailed Notes
+      <span class="arrow">▼</span>
+    </button>
+
+    <div id="details-ch9" class="collapsible-content">
+      <!-- Detailed Notes Content -->
+      <div class="notes-container">
+
+        <h3>• Universal Law of Gravitation</h3>
+        <p>Every object in the universe attracts every other object with a force proportional to the product of their masses and inversely proportional to the square of the distance between them.</p>
+        <ul>
+          <li>Formula: $F = \frac{G M m}{r^2}$</li>
+          <li>$G$ is the Universal Gravitational Constant.</li>
+        </ul>
+
+        <h3>• Acceleration due to Gravity ($g$)</h3>
+        <ul>
+          <li>The acceleration produced by the Earth's gravitational pull.</li>
+          <li>Value on Earth: $g = 9.8 \text{ m/s}^2$</li>
+          <li>Formula: $g = \frac{G M}{R^2}$</li>
+        </ul>
+        [Image illustrating acceleration due to gravity on Earth]
+
+        <h3>• Mass vs. Weight</h3>
+        <table>
+          <tr><th>Feature</th><th>Mass ($m$)</th><th>Weight ($W$)</th></tr>
+          <tr><td>Definition</td><td>Amount of matter</td><td>Force of gravity on an object ($W = m g$)</td></tr>
+          <tr><td>Unit</td><td>kg</td><td>Newton (N)</td></tr>
+          <tr><td>Dependence on location</td><td>Constant, independent of location</td><td>Varies with location</td></tr>
+        </table>
+
+        <h3>• Free Fall</h3>
+        <p>An object falling under the influence of gravity alone is in free fall.</p>
+        <ul>
+          <li>Initial velocity $u = 0$ if dropped from rest</li>
+          <li>Displacement: $s = \frac{1}{2} g t^2$</li>
+          <li>Velocity after time $t$: $v = g t$</li>
+        </ul>
+
+        <h3>• Orbital Motion</h3>
+        <p>Objects move in circular orbits under the influence of centripetal force provided by gravity.</p>
+        <ul>
+          <li>Planets revolve around the Sun due to Sun’s gravitational pull</li>
+          <li>Artificial satellites remain in orbit due to Earth’s gravity and their tangential velocity</li>
+        </ul>
+
+        <h3>• Important Points</h3>
+        <ul>
+          <li>Force of gravitation keeps planets, moons, and satellites in motion</li>
+          <li>Gravity decreases with height above Earth's surface</li>
+          <li>Weightlessness occurs when gravitational pull is balanced by free fall motion (e.g., in space)</li>
+        </ul>
+
+        <h3>• Fun Facts</h3>
+        <ul>
+          <li>Moon’s gravity is $1/6$th of Earth’s gravity.</li>
+          <li>All objects fall at the same rate ignoring air resistance.</li>
+          <li>Gravitational force is responsible for tides on Earth.</li>
+        </ul>
+      </div>
+      <!-- End Detailed Notes Content -->
+    </div>
+    <!-- END DETAILED NOTES SECTION -->
+
+  </div>
+</section>
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Function to toggle content visibility
+  function toggleSection(button) {
+    const targetId = button.getAttribute('data-target');
+    const content = document.getElementById(targetId);
+    
+    // Toggle the 'open' class for height and padding transition
+    content.classList.toggle('open');
+    button.classList.toggle('active');
+    
+    // Toggle the arrow direction
+    const arrow = button.querySelector('.arrow');
+    if (arrow) {
+      arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
+    }
+  }
+
+  // Attach toggle functionality to all buttons with class 'toggle-btn'
+  document.querySelectorAll('.toggle-btn').forEach(button => {
+    button.addEventListener('click', () => toggleSection(button));
+  });
+
+  // Dark Mode Toggle
+  const modeToggle = document.getElementById('mode-toggle');
+  const body = document.body;
+
+  modeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    modeToggle.textContent = body.classList.contains('dark') ? '🌙' : '☀️';
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch 2: Is Matter Around Us Pure? | SciencePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#0ea5e9',
+                        darkBg: '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        toddler: ['"Comic Sans MS"', '"Chalkboard SE"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        body.toddler-mode { font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif !important; }
+        body.topper-mode { filter: grayscale(100%) contrast(1.1); background-color: #ffffff !important; }
+        body.topper-mode.dark { background-color: #020617 !important; }
+        .topper-hide { display: block; }
+        body.topper-mode .topper-hide { display: none !important; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .formula-box {
+            background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-darkBg dark:text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-card border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <i class="fas fa-arrow-left text-indigo-600"></i>
+                </a>
+                <div>
+                    <span class="text-[10px] font-black uppercase text-indigo-500 tracking-tighter">Chemistry • Chapter 2</span>
+                    <h1 class="font-bold text-lg leading-tight">Is Matter Around Us Pure?</h1>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button onclick="toggleTopper()" class="p-2 px-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                    <i class="fas fa-graduation-cap mr-1"></i> <span id="topperLabel">Topper</span>
+                </button>
+                <button onclick="toggleToddler()" class="p-2 px-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                    <i class="fas fa-baby mr-1"></i> Toddler
+                </button>
+                <button onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-xl bg-indigo-50 dark:bg-slate-800 text-indigo-600">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-12 space-y-16">
+        
+        <!-- Hero Section -->
+        <header class="text-center space-y-4">
+            <div class="inline-block p-4 bg-indigo-600 text-white rounded-3xl shadow-xl shadow-indigo-500/20 mb-4 topper-hide">
+                <i class="fas fa-vial text-4xl"></i>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black tracking-tight">Pure vs <span class="text-indigo-600">Impure</span></h2>
+            <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+                In science, "pure" doesn't just mean clean. It means the substance consists of only <b>one</b> type of particle.
+            </p>
+        </header>
+
+        <!-- 1. Classification of Matter -->
+        <section class="space-y-8">
+            <div class="flex items-center gap-3 border-l-4 border-indigo-600 pl-4">
+                <h3 class="text-3xl font-black">1. Classification of Matter</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-3xl border-2 border-indigo-100 dark:border-indigo-900/30">
+                    <h4 class="text-indigo-600 font-bold text-xl mb-3"><i class="fas fa-check-circle mr-2"></i>Pure Substances</h4>
+                    <p class="text-sm mb-4 opacity-80">Consistent chemical properties throughout.</p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex gap-2"><b>Elements:</b> Cannot be broken down (e.g., Gold, Oxygen).</li>
+                        <li class="flex gap-2"><b>Compounds:</b> Fixed ratio of elements (e.g., Water H₂O, Salt NaCl).</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-6 rounded-3xl border-2 border-amber-100 dark:border-amber-900/30">
+                    <h4 class="text-amber-600 font-bold text-xl mb-3"><i class="fas fa-random mr-2"></i>Mixtures</h4>
+                    <p class="text-sm mb-4 opacity-80">Contains more than one substance mixed physically.</p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex gap-2"><b>Homogeneous:</b> Uniform composition (e.g., Sugar in water).</li>
+                        <li class="flex gap-2"><b>Heterogeneous:</b> Distinct parts (e.g., Sand in water, Oil & water).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Solutions and Concentration -->
+        <section class="space-y-8">
+            <div class="flex items-center gap-3 border-l-4 border-indigo-600 pl-4">
+                <h3 class="text-3xl font-black">2. Solutions & Concentration</h3>
+            </div>
+
+            <div class="p-8 glass-card rounded-[2.5rem] space-y-6">
+                <p class="leading-relaxed">A <b>solution</b> is a homogeneous mixture of two or more substances. It consists of a <b>Solute</b> (smaller amount) and a <b>Solvent</b> (larger amount).</p>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-2xl">
+                        <h5 class="font-bold text-indigo-600 mb-1">Saturated Solution</h5>
+                        <p class="text-xs">No more solute can be dissolved at a given temperature.</p>
+                    </div>
+                    <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-2xl">
+                        <h5 class="font-bold text-indigo-600 mb-1">Solubility</h5>
+                        <p class="text-xs">Maximum amount of solute that can dissolve in 100g of solvent.</p>
+                    </div>
+                </div>
+
+                <div class="formula-box">
+                    <h5 class="text-amber-400 font-bold mb-3 uppercase tracking-widest text-xs">Concentration Formula (Mass %)</h5>
+                    <div class="text-lg md:text-xl">
+                        $\frac{\text{Mass of Solute}}{\text{Mass of Solution}} \times 100$
+                    </div>
+                    <p class="text-[10px] mt-4 text-indigo-200">*Remember: Mass of Solution = Mass of Solute + Mass of Solvent</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Suspensions and Colloids -->
+        <section class="space-y-8">
+            <div class="flex items-center gap-3 border-l-4 border-indigo-600 pl-4">
+                <h3 class="text-3xl font-black">3. Suspensions vs Colloids</h3>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left glass-card rounded-3xl overflow-hidden">
+                    <thead class="bg-indigo-600 text-white">
+                        <tr>
+                            <th class="p-4">Property</th>
+                            <th class="p-4">Solution</th>
+                            <th class="p-4">Colloid</th>
+                            <th class="p-4">Suspension</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-slate-100 dark:border-slate-800">
+                            <td class="p-4 font-bold">Size</td>
+                            <td class="p-4">< 1 nm</td>
+                            <td class="p-4">1 nm - 1000 nm</td>
+                            <td class="p-4">> 1000 nm</td>
+                        </tr>
+                        <tr class="border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/20">
+                            <td class="p-4 font-bold">Tyndall Effect</td>
+                            <td class="p-4 text-red-500">No</td>
+                            <td class="p-4 text-green-500 font-bold">Yes (Scatters Light)</td>
+                            <td class="p-4 text-green-500">Yes</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Stability</td>
+                            <td class="p-4">Very Stable</td>
+                            <td class="p-4">Stable</td>
+                            <td class="p-4">Unstable (settles)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="p-6 bg-amber-50 dark:bg-amber-900/10 border-l-4 border-amber-500 rounded-r-2xl">
+                <p class="text-sm"><b>The Tyndall Effect:</b> When a beam of light becomes visible as it passes through a colloid (like sunlight through dust or fog).</p>
+            </div>
+        </section>
+
+        <!-- 4. Separation Techniques -->
+        <section class="space-y-8">
+            <div class="flex items-center gap-3 border-l-4 border-indigo-600 pl-4">
+                <h3 class="text-3xl font-black">4. Separation of Mixtures</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 glass-card rounded-3xl space-y-3">
+                    <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/50 rounded-2xl flex items-center justify-center text-indigo-600">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h4 class="font-bold">Evaporation</h4>
+                    <p class="text-xs opacity-70">Separating a non-volatile solute from a volatile solvent (e.g., Salt from Water).</p>
+                </div>
+                <div class="p-6 glass-card rounded-3xl space-y-3">
+                    <div class="w-12 h-12 bg-sky-100 dark:bg-sky-900/50 rounded-2xl flex items-center justify-center text-sky-600">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h4 class="font-bold">Centrifugation</h4>
+                    <p class="text-xs opacity-70">Separating dense particles from lighter ones by spinning (e.g., Cream from Milk).</p>
+                </div>
+                <div class="p-6 glass-card rounded-3xl space-y-3">
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 rounded-2xl flex items-center justify-center text-purple-600">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h4 class="font-bold">Chromatography</h4>
+                    <p class="text-xs opacity-70">Separating solutes that dissolve in the same solvent (e.g., Dyes in Black Ink).</p>
+                </div>
+                <div class="p-6 glass-card rounded-3xl space-y-3">
+                    <div class="w-12 h-12 bg-rose-100 dark:bg-rose-900/50 rounded-2xl flex items-center justify-center text-rose-600">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <h4 class="font-bold">Distillation</h4>
+                    <p class="text-xs opacity-70">Separating miscible liquids with different boiling points (>25K difference).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Physical vs Chemical Change -->
+        <section class="glass-card p-8 rounded-[2.5rem] bg-slate-900 text-white topper-hide overflow-hidden relative">
+            <div class="relative z-10 grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-black text-indigo-400">Physical Change</h3>
+                    <p class="text-sm opacity-80">No new substance is formed. Reversible. Changes in state, color, or shape.<br><br><b>Example:</b> Melting ice, Tearing paper.</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-black text-rose-400">Chemical Change</h3>
+                    <p class="text-sm opacity-80">New substance is formed with different properties. Irreversible.<br><br><b>Example:</b> Burning wood, Rusting iron, Digestion.</p>
+                </div>
+            </div>
+            <i class="fas fa-flask absolute -bottom-10 -right-10 text-[10rem] opacity-5 -rotate-12"></i>
+        </section>
+
+        <!-- Footer -->
+        <footer class="flex justify-between items-center py-10">
+            <a href="ch1.html" class="text-sm font-bold opacity-50 hover:opacity-100 transition-opacity">
+                <i class="fas fa-chevron-left mr-2"></i> Chapter 1
+            </a>
+            <a href="ch3.html" class="p-4 px-8 bg-slate-900 dark:bg-slate-700 text-white rounded-2xl font-bold shadow-lg hover:bg-indigo-600 transition-all">
+                Chapter 3 <i class="fas fa-chevron-right ml-2"></i>
+            </a>
+        </footer>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            document.getElementById('themeIcon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        function toggleToddler() { document.body.classList.toggle('toddler-mode'); }
+        function toggleTopper() {
+            document.body.classList.toggle('topper-mode');
+            const isTopper = document.body.classList.contains('topper-mode');
+            document.getElementById('topperLabel').innerText = isTopper ? 'Exit Focus' : 'Topper';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPulse Ultimate | @EduPulses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#6366f1', secondary: '#0ea5e9', topperGold: '#d4af37' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], toddler: ['"Comic Sans MS"', 'cursive'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .glass-panel { backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* Persistent Nav Fix */
+        nav, .mode-control { opacity: 1 !important; pointer-events: auto !important; filter: none !important; z-index: 100; }
+
+        /* MODES */
+        body.topper-mode { background: #fdf6e3 !important; }
+        .topper-mode .distraction { opacity: 0.08; pointer-events: none; filter: blur(10px); }
+        
+        body.toddler-mode { font-family: 'Comic Sans MS', cursive !important; background: #fff5f7 !important; }
+        .toddler-mode .chapter-card { border: 4px dashed #ff6b6b; border-radius: 40px; transform: rotate(1deg); }
+
+        body.sprint-mode { background: #fff1f2 !important; }
+        .sprint-mode .chapter-card { border: 2px solid #e11d48; animation: pulseRed 2s infinite; }
+        @keyframes pulseRed { 0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(225, 29, 72, 0); } 100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); } }
+
+        .active-btn { background: #6366f1 !important; color: white !important; transform: scale(1.1); }
+        .billboard-gradient { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 min-h-screen">
+
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 glass-panel px-6 py-4 flex justify-between items-center shadow-sm">
+        <div class="flex items-center gap-4">
+            <button onclick="toggleSidebar()" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl"><i class="fas fa-bars"></i></button>
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white shadow-lg"><i class="fas fa-play text-xs"></i></div>
+                <h1 class="text-xl font-black tracking-tighter">EDU<span class="text-indigo-600">PULSE</span></h1>
+            </div>
+        </div>
+
+        <div class="mode-control flex items-center gap-3">
+            <button id="topper-btn" onclick="toggleMode('topper-mode')" class="w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center text-amber-500 transition-all" title="Topper Mode"><i class="fas fa-crown"></i></button>
+            <button id="toddler-btn" onclick="toggleMode('toddler-mode')" class="w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center text-rose-400 transition-all" title="Toddler Mode"><i class="fas fa-child"></i></button>
+            <button id="sprint-btn" onclick="toggleMode('sprint-mode')" class="w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center text-red-600 transition-all" title="Exam Sprint"><i class="fas fa-running"></i></button>
+            <div class="h-6 w-[1px] bg-slate-200 dark:bg-slate-700 mx-2"></div>
+            <button onclick="toggleDarkMode()" class="p-2 text-indigo-500"><i id="themeIcon" class="fas fa-moon"></i></button>
+        </div>
+    </nav>
+
+    <div id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-white/95 dark:bg-slate-900/95 glass-panel z-[60] transform -translate-x-full transition-transform duration-300 shadow-2xl">
+        <div class="p-6 border-b dark:border-slate-800 flex justify-between items-center">
+            <h2 class="font-bold text-xs uppercase tracking-widest">Dashboard</h2>
+            <button onclick="toggleSidebar()" class="text-slate-400">✕</button>
+        </div>
+        <div class="p-6 space-y-6">
+            <a href="https://www.youtube.com/channel/UC2-R7-Jk8saNqzbZnfDFFZg" target="_blank" class="flex items-center gap-3 p-4 bg-red-50 text-red-600 rounded-2xl font-bold text-sm">
+                <i class="fab fa-youtube text-xl"></i> Subscribe Now
+            </a>
+            <button onclick="resetModes()" class="w-full text-xs font-bold text-slate-400 hover:text-red-500">RESET ALL MODES</button>
+            <div id="sidebarLinks" class="space-y-1"></div>
+        </div>
+    </div>
+
+    <main class="pt-28 pb-12 px-6 max-w-7xl mx-auto">
+        <div class="billboard-gradient rounded-[3rem] p-12 text-white shadow-2xl mb-12 relative overflow-hidden distraction">
+            <div class="relative z-10">
+                <span class="bg-white/20 px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 inline-block">Official Student Portal</span>
+                <h2 class="text-5xl font-black mb-4">Master Class 9 Science</h2>
+                <p class="text-indigo-100 max-w-lg mb-8">Premium notes, simplified concepts, and exam strategies from the EduPulse YouTube family.</p>
+                <a href="https://www.youtube.com/channel/UC2-R7-Jk8saNqzbZnfDFFZg" target="_blank" class="inline-flex items-center gap-2 bg-white text-indigo-600 px-6 py-3 rounded-xl font-bold shadow-xl hover:scale-105 transition">
+                    Visit @EduPulses <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+            </div>
+        </div>
+
+        <div id="chapterGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+    </main>
+
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 pt-16 pb-8 px-6 distraction">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            <div>
+                <h3 class="font-black text-xl mb-4 italic">Edu<span class="text-indigo-600">Pulse</span></h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    EduPulse is dedicated to making Class 9 Science accessible, interesting, and easy to score. Our mission is to provide high-quality digital notes that complement our video lessons.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm uppercase tracking-widest mb-6 text-indigo-600">Quick Links</h4>
+                <ul class="space-y-3 text-sm font-medium text-slate-500">
+                    <li><a href="#" class="hover:text-indigo-600 transition">Latest Notes</a></li>
+                    <li><a href="#" class="hover:text-indigo-600 transition">Important Questions</a></li>
+                    <li><a href="https://www.youtube.com/channel/UC2-R7-Jk8saNqzbZnfDFFZg" class="hover:text-indigo-600 transition">YouTube Channel</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm uppercase tracking-widest mb-6 text-indigo-600">Connect</h4>
+                <div class="flex gap-4">
+                    <a href="https://www.youtube.com/channel/UC2-R7-Jk8saNqzbZnfDFFZg" class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white transition-all shadow-sm">
+                        <i class="fab fa-youtube text-lg"></i>
+                    </a>
+                    <div class="flex flex-col">
+                        <span class="text-xs font-bold">@EduPulses</span>
+                        <span class="text-[10px] text-slate-400 tracking-tighter uppercase font-black">Official YouTube</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.4em]">
+                &copy; 2024 EDUPULSE ULTIMATE • BY @EDUPULSES • ALL RIGHTS RESERVED
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const chapters = [
+            { id: 1, title: "Matter in Our Surroundings", cat: "Chemistry", icon: "vial" },
+            { id: 2, title: "Is Matter Around Us Pure?", cat: "Chemistry", icon: "flask" },
+            { id: 3, title: "Atoms and Molecules", cat: "Chemistry", icon: "atom" },
+            { id: 4, title: "Structure of the Atom", cat: "Chemistry", icon: "microscope" },
+            { id: 5, title: "Fundamental Unit of Life", cat: "Biology", icon: "dna" },
+            { id: 6, title: "Tissues", cat: "Biology", icon: "leaf" },
+            { id: 7, title: "Motion", cat: "Physics", icon: "bolt" },
+            { id: 8, title: "Force & Laws of Motion", cat: "Physics", icon: "hammer" },
+            { id: 9, title: "Gravitation", cat: "Physics", icon: "globe" },
+            { id: 10, title: "Work and Energy", cat: "Physics", icon: "lightbulb" },
+            { id: 11, title: "Sound", cat: "Physics", icon: "volume-up" },
+            { id: 12, title: "Improvement in Food", cat: "Biology", icon: "seedling" },
+            { id: 13, title: "Why Do We Fall Ill?", cat: "Biology", icon: "virus" }
+        ];
+
+        function init() {
+            const savedMode = localStorage.getItem('epMode');
+            if(savedMode) document.body.classList.add(savedMode);
+            updateBtnUI();
+
+            const grid = document.getElementById('chapterGrid');
+            const side = document.getElementById('sidebarLinks');
+            
+            chapters.forEach(ch => {
+                grid.innerHTML += `
+                <div class="chapter-card bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-slate-800 flex items-center justify-center text-indigo-600 mb-6"><i class="fas fa-${ch.icon}"></i></div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">${ch.cat}</span>
+                    <h3 class="font-bold text-lg mt-2 mb-8 leading-tight h-12">${ch.title}</h3>
+                    <button onclick="window.location.href='ch${ch.id}.html'" class="w-full bg-slate-900 dark:bg-slate-700 text-white py-4 rounded-2xl font-bold hover:bg-indigo-600 transition">Read Now</button>
+                </div>`;
+                side.innerHTML += `<button onclick="window.location.href='ch${ch.id}.html'" class="w-full text-left p-3 rounded-lg hover:bg-indigo-50 dark:hover:bg-slate-800 text-sm font-semibold truncate">Ch ${ch.id}: ${ch.title}</button>`;
+            });
+        }
+
+        function toggleMode(cls) {
+            const active = document.body.classList.contains(cls);
+            document.body.classList.remove('topper-mode', 'toddler-mode', 'sprint-mode');
+            localStorage.removeItem('epMode');
+            if(!active) {
+                document.body.classList.add(cls);
+                localStorage.setItem('epMode', cls);
+            }
+            updateBtnUI();
+        }
+
+        function resetModes() {
+            document.body.classList.remove('topper-mode', 'toddler-mode', 'sprint-mode');
+            localStorage.removeItem('epMode');
+            updateBtnUI();
+            toggleSidebar();
+        }
+
+        function updateBtnUI() {
+            document.getElementById('topper-btn').className = "w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center text-amber-500 transition-all " + (document.body.classList.contains('topper-mode') ? 'active-btn' : '');
+            document.getElementById('toddler-btn').className = "w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center text-rose-400 transition-all " + (document.body.classList.contains('toddler-mode') ? 'active-btn' : '');
+            document.getElementById('sprint-btn').className = "w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center text-red-600 transition-all " + (document.body.classList.contains('sprint-mode') ? 'active-btn' : '');
+        }
+
+        function toggleDarkMode() { document.documentElement.classList.toggle('dark'); }
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('-translate-x-full'); }
+
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

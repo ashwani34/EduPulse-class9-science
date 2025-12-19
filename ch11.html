@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 11 - Sound</title>
+
+<style>
+  body{ margin:0; font-family: Arial, sans-serif; background:#eef3ff; color:#222; transition:0.3s; }
+  header{ background:linear-gradient(135deg,#4a90e2,#0055aa); padding:25px; text-align:center; font-size:30px; color:white; font-weight:bold; }
+  nav{ background:#002244; padding:12px; text-align:center; }
+  nav a{ color:white; margin:0 15px; text-decoration:none; font-size:18px; }
+  nav a:hover{ text-decoration:underline; }
+  section{ max-width:900px; margin:auto; padding:25px; }
+  .card{ background:white; padding:25px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.15); }
+  h1{ color:#003c99; }
+
+  .dark{ background:#0a0f1a; color:#e6e6e6; }
+  .dark .card{ background:#111827; color:#e6e6e6; }
+  .dark h1{ color:#5b98e7; }
+  .dark header{ background:linear-gradient(135deg,#1f487e,#002244); }
+  .dark #topBtn{ background:#5b98e7; }
+  .dark nav{ background:#000d1a; }
+  .dark nav a{ color:#aacbff; }
+
+  #topBtn{
+    position: fixed; bottom: 25px; right: 25px; padding: 12px 15px; border:none;
+    border-radius:50%; background:#003c99; color:white; font-size:18px; cursor:pointer;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2); transition:0.3s; z-index:99;
+  }
+
+  /* New Styles for Toggle Functionality */
+  .toggle-btn {
+    background: #003c99;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: background 0.3s, transform 0.1s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .toggle-btn:hover {
+    background: #0055aa;
+  }
+  .toggle-btn.active {
+    background: #4a90e2;
+  }
+  .collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background: #f7f7f7;
+    border-radius: 8px;
+    margin-top: -15px; 
+    padding: 0 25px;
+    border: 1px solid #ddd;
+    border-top: none;
+  }
+  .collapsible-content.open {
+    max-height: 5000px; 
+    padding: 25px;
+  }
+  .dark .collapsible-content {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #e6e6e6;
+  }
+  .arrow {
+    transition: transform 0.3s;
+    font-size: 1.2em;
+  }
+  .toggle-btn.active .arrow {
+    transform: rotate(180deg);
+  }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+  th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
+  th { background-color: #f0f0f0; color: #003c99; }
+  .dark th { background-color: #334155; color: #5b98e7; }
+</style>
+</head>
+<body>
+
+<header>
+  Class 9 Science Notes
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="ch1.html">Matter</a>
+  <a href="ch7.html">Motion</a>
+  <button id="mode-toggle" style="background:none; color:white; border:none; cursor:pointer;">☀️</button>
+</nav>
+
+<section>
+  <div class="card">
+    <h1>Sound</h1>
+    <p style="color:#003c99; font-weight:bold; margin-bottom: 25px;">Chapter 11 | Physics</p>
+
+    <h2>Summary</h2>
+    <p>This chapter discusses the production, propagation, and characteristics of sound waves, including reflection, echo, and the human hearing range.</p>
+
+    <!-- DETAILED NOTES SECTION - CLICK TO REVEAL -->
+    <button class="toggle-btn" data-target="details-ch11">
+      Detailed Notes
+      <span class="arrow">▼</span>
+    </button>
+
+    <div id="details-ch11" class="collapsible-content">
+      <!-- Detailed Notes Content -->
+      <div class="notes-container">
+        <h3>• Production and Propagation of Sound</h3>
+        <p>Sound is produced by vibrations. It travels as a wave (longitudinal in air) and requires a medium (solid, liquid, or gas) to propagate.</p>
+        [Image illustrating longitudinal sound wave]
+
+        <h3>• Characteristics of Sound Waves</h3>
+        <ul>
+          <li><b>Wavelength ($\lambda$):</b> Distance between two consecutive compressions or rarefactions.</li>
+          <li><b>Frequency ($\nu$):</b> Number of oscillations per unit time (Unit: Hertz, Hz).</li>
+          <li><b>Time Period ($T$):</b> Time taken for one complete oscillation. ($T = 1/\nu$)</li>
+          <li><b>Speed ($v$):</b> $v = \nu \times \lambda$</li>
+        </ul>
+        [Image of a labeled sound wave (compression, rarefaction, wavelength)]
+
+        <h3>• Reflection of Sound and Echoes</h3>
+        <p>Sound bounces off a surface, giving rise to echoes.</p>
+        <ul>
+          <li>Echo – reflected sound heard after the original sound</li>
+          <li>For distinct echo: distance between source and reflector $\geq 17.2 \text{ m}$ (for air, speed $= 344 \text{ m/s}$)</li>
+        </ul>
+
+        <h3>• Applications of Reflection of Sound</h3>
+        <ul>
+          <li>Echo sounding (SONAR) – used to detect underwater objects, measure depth</li>
+          <li>Megaphones and auditoriums use sound reflection to amplify sound</li>
+        </ul>
+        [Image of SONAR application]
+
+        <h3>• Range of Hearing</h3>
+        <p>Humans can hear frequencies from $20 \text{ Hz}$ to $20,000 \text{ Hz}$. Sounds above $20 \text{ kHz}$ are ultrasonic; below $20 \text{ Hz}$ are infrasonic.</p>
+
+        <h3>• Musical Instruments</h3>
+        <p>Produce sound of definite pitch through vibrating strings, air columns, or membranes.</p>
+
+        <h3>• Speed of Sound in Different Mediums</h3>
+        <p>Sound travels fastest in solids, then liquids, and slowest in gases.</p>
+        <table>
+          <tr><th>Medium</th><th>Speed (m/s)</th></tr>
+          <tr><td>Air</td><td>344</td></tr>
+          <tr><td>Water</td><td>1482</td></tr>
+          <tr><td>Steel</td><td>5000</td></tr>
+        </table>
+
+        <h3>• Fun Facts</h3>
+        <ul>
+          <li>Bats use ultrasonic sound waves to navigate in dark.</li>
+          <li>Dolphins communicate using sound underwater.</li>
+          <li>Thunder is the sound produced due to rapid expansion of air during lightning.</li>
+        </ul>
+      </div>
+      <!-- End Detailed Notes Content -->
+    </div>
+    <!-- END DETAILED NOTES SECTION -->
+
+  </div>
+</section>
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Function to toggle content visibility
+  function toggleSection(button) {
+    const targetId = button.getAttribute('data-target');
+    const content = document.getElementById(targetId);
+    
+    // Toggle the 'open' class for height and padding transition
+    content.classList.toggle('open');
+    button.classList.toggle('active');
+    
+    // Toggle the arrow direction
+    const arrow = button.querySelector('.arrow');
+    if (arrow) {
+      arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
+    }
+  }
+
+  // Attach toggle functionality to all buttons with class 'toggle-btn'
+  document.querySelectorAll('.toggle-btn').forEach(button => {
+    button.addEventListener('click', () => toggleSection(button));
+  });
+
+  // Dark Mode Toggle
+  const modeToggle = document.getElementById('mode-toggle');
+  const body = document.body;
+
+  modeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    modeToggle.textContent = body.classList.contains('dark') ? '🌙' : '☀️';
+  });
+</script>
+
+</body>
+</html>

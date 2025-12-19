@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 4 - Structure of the Atom</title>
+
+<style>
+  body{margin:0;font-family:Arial, sans-serif;background:#eef3ff;color:#222;transition:0.3s;}
+  header{background:linear-gradient(135deg,#4a90e2,#0055aa);padding:25px;text-align:center;color:white;font-size:30px;font-weight:bold;}
+  nav{background:#002244;text-align:center;padding:12px;}
+  nav a{color:white;margin:0 15px;font-size:18px;text-decoration:none;}
+  nav a:hover{text-decoration:underline;}
+  section{max-width:900px;margin:auto;padding:25px;}
+  .card{background:white;padding:25px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.15);}
+  h1{color:#003c99;}
+
+  .dark{background:#0a0f1a;color:#e6e6e6;}
+  .dark .card{background:#111827;color:#e6e6e6;}
+  .dark h1{ color:#5b98e7; }
+  .dark header{ background:linear-gradient(135deg,#1f487e,#002244); }
+  .dark #topBtn{ background:#5b98e7; }
+  .dark nav{ background:#000d1a; }
+  .dark nav a{ color:#aacbff; }
+
+  #topBtn{
+    position: fixed; bottom: 25px; right: 25px; padding: 12px 15px; border:none;
+    border-radius:50%; background:#003c99; color:white; font-size:18px; cursor:pointer;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2); transition:0.3s; z-index:99;
+  }
+
+  /* New Styles for Toggle Functionality */
+  .toggle-btn {
+    background: #003c99;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: background 0.3s, transform 0.1s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .toggle-btn:hover {
+    background: #0055aa;
+  }
+  .toggle-btn.active {
+    background: #4a90e2;
+  }
+  .collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background: #f7f7f7;
+    border-radius: 8px;
+    margin-top: -15px; 
+    padding: 0 25px;
+    border: 1px solid #ddd;
+    border-top: none;
+  }
+  .collapsible-content.open {
+    max-height: 5000px; 
+    padding: 25px;
+  }
+  .dark .collapsible-content {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #e6e6e6;
+  }
+  .arrow {
+    transition: transform 0.3s;
+    font-size: 1.2em;
+  }
+  .toggle-btn.active .arrow {
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  Class 9 Science Notes
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="ch1.html">Matter</a>
+  <a href="ch7.html">Motion</a>
+  <button id="mode-toggle" style="background:none; color:white; border:none; cursor:pointer;">☀️</button>
+</nav>
+
+<section>
+  <div class="card">
+    <h1>Structure of the Atom</h1>
+    <p style="color:#003c99; font-weight:bold; margin-bottom: 25px;">Chapter 4 | Chemistry</p>
+
+    <h2>Summary</h2>
+    <p>This chapter explores the discovery of subatomic particles and the development of atomic models including Thomson, Rutherford, and Bohr models.</p>
+
+    <!-- DETAILED NOTES SECTION - CLICK TO REVEAL -->
+    <button class="toggle-btn" data-target="details-ch4">
+      Detailed Notes
+      <span class="arrow">▼</span>
+    </button>
+
+    <div id="details-ch4" class="collapsible-content">
+      <!-- Detailed Notes Content -->
+      <div class="notes-container">
+        <h3>• Discovery of Subatomic Particles</h3>
+        <ul>
+          <li><b>Electron</b> – J.J. Thomson (cathode ray experiment)</li>
+          <li><b>Proton</b> – E. Goldstein</li>
+          <li><b>Neutron</b> – James Chadwick</li>
+        </ul>
+        [Image of Cathode Ray Experiment]
+
+        <h3>• Thomson’s Model (Plum Pudding)</h3>
+        <p>Electrons embedded in a positive sphere → Incorrect.</p>
+
+        <h3>• Rutherford’s Nuclear Model</h3>
+        <p>Based on alpha particle scattering experiment:</p>
+        <ul>
+          <li>Most of the space is empty</li>
+          <li>Positive charge is concentrated in the nucleus</li>
+          <li>Electrons revolve around the nucleus</li>
+        </ul>
+        [Image of Rutherford's Alpha Scattering Experiment]
+
+        <h3>• Bohr’s Model</h3>
+
+        <!-- DIAGRAM 2: Bohr Atomic Model -->
+        <img src="images/ch4_bohr.png" alt="Bohr Atomic Model" style="width:70%;display:block;margin:20px auto;border-radius:10px;">
+
+        <ul>
+          <li>Electrons revolve in fixed energy levels (shells)</li>
+          <li>Energy increases away from nucleus</li>
+          <li>No radiation when electron stays in same orbit</li>
+        </ul>
+
+        <h3>• Atomic Number & Mass Number</h3>
+        <ul>
+          <li><b>Atomic Number (Z)</b> = number of protons</li>
+          <li><b>Mass Number (A)</b> = protons + neutrons</li>
+        </ul>
+
+        <h3>• Isotopes</h3>
+        <p>Atoms of same element with different mass numbers (same Z, different A). Example: Carbon-12 and Carbon-14.</p>
+
+        <h3>• Isobars</h3>
+        <p>Atoms of different elements with same mass number (different Z, same A). Example: Argon and Calcium.</p>
+      </div>
+      <!-- End Detailed Notes Content -->
+    </div>
+    <!-- END DETAILED NOTES SECTION -->
+
+  </div>
+</section>
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Function to toggle content visibility
+  function toggleSection(button) {
+    const targetId = button.getAttribute('data-target');
+    const content = document.getElementById(targetId);
+    
+    // Toggle the 'open' class for height and padding transition
+    content.classList.toggle('open');
+    button.classList.toggle('active');
+    
+    // Toggle the arrow direction
+    const arrow = button.querySelector('.arrow');
+    if (arrow) {
+      arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
+    }
+  }
+
+  // Attach toggle functionality to all buttons with class 'toggle-btn'
+  document.querySelectorAll('.toggle-btn').forEach(button => {
+    button.addEventListener('click', () => toggleSection(button));
+  });
+
+  // Dark Mode Toggle
+  const modeToggle = document.getElementById('mode-toggle');
+  const body = document.body;
+
+  modeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    modeToggle.textContent = body.classList.contains('dark') ? '🌙' : '☀️';
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch 1: Matter in Our Surroundings | SciencePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#0ea5e9',
+                        darkBg: '#0f172a',
+                        glass: 'rgba(255, 255, 255, 0.7)',
+                        darkGlass: 'rgba(15, 23, 42, 0.8)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        toddler: ['"Comic Sans MS"', '"Chalkboard SE"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        
+        /* Toddler Mode */
+        body.toddler-mode { font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif !important; }
+        
+        /* Topper Mode (Minimalist Focus) */
+        body.topper-mode { 
+            filter: grayscale(100%) contrast(1.05);
+            background-color: #ffffff !important;
+        }
+        body.topper-mode .topper-hide { display: none !important; }
+        body.topper-mode.dark { background-color: #020617 !important; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-content { animation: slideIn 0.5s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-darkBg dark:text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-card border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <i class="fas fa-arrow-left text-indigo-600"></i>
+                </a>
+                <div>
+                    <span class="text-[10px] font-black uppercase text-indigo-500 tracking-tighter">Chemistry</span>
+                    <h1 class="font-bold text-lg leading-tight">Matter in Our Surroundings</h1>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button onclick="toggleTopper()" class="p-2 px-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                    <i class="fas fa-graduation-cap mr-1"></i> <span id="topperLabel">Topper</span>
+                </button>
+                <button onclick="toggleToddler()" class="p-2 px-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                    <i class="fas fa-baby mr-1"></i> Toddler
+                </button>
+                <button onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-xl bg-indigo-50 dark:bg-slate-800 text-indigo-600">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-12 space-y-12 animate-content">
+        
+        <!-- Intro Hero -->
+        <header class="text-center space-y-4">
+            <div class="inline-block p-4 bg-indigo-600 text-white rounded-3xl shadow-xl shadow-indigo-500/20 mb-4 topper-hide">
+                <i class="fas fa-cube text-4xl"></i>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black tracking-tight">Everything is <span class="text-indigo-600">Matter</span></h2>
+            <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+                Matter is anything that has <b>mass</b> and occupies <b>space</b>. It is the building block of our universe.
+            </p>
+        </header>
+
+        <!-- 1. Physical Nature -->
+        <section class="glass-card p-8 rounded-[2rem] space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 font-black">01</div>
+                <h3 class="text-2xl font-bold">Physical Nature of Matter</h3>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-6 bg-white/50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <h4 class="font-bold text-indigo-500 mb-2 underline decoration-2 underline-offset-4">Particulate Nature</h4>
+                    <p class="text-sm leading-relaxed">Matter is not a continuous block; it's made of tiny particles. Think of a sandcastle made of individual grains.</p>
+                </div>
+                <div class="p-6 bg-white/50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <h4 class="font-bold text-indigo-500 mb-2 underline decoration-2 underline-offset-4">Tiny Scale</h4>
+                    <p class="text-sm leading-relaxed">These particles are so small they are beyond our imagination. A single drop of water has billions of them!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. The States -->
+        <section class="space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 font-black">02</div>
+                <h3 class="text-2xl font-bold">States of Matter</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Solid -->
+                <div class="group p-6 glass-card rounded-3xl hover:border-indigo-500 transition-all">
+                    <i class="fas fa-dice-d6 text-3xl text-indigo-500 mb-4 group-hover:rotate-12 transition-transform"></i>
+                    <h4 class="font-black text-xl mb-2">Solids</h4>
+                    <ul class="text-sm space-y-2 opacity-80">
+                        <li>• Fixed shape & volume</li>
+                        <li>• Negligible compressibility</li>
+                        <li>• Strong force of attraction</li>
+                    </ul>
+                </div>
+                <!-- Liquid -->
+                <div class="group p-6 glass-card rounded-3xl hover:border-sky-500 transition-all">
+                    <i class="fas fa-tint text-3xl text-sky-500 mb-4 group-hover:bounce transition-all"></i>
+                    <h4 class="font-black text-xl mb-2">Liquids</h4>
+                    <ul class="text-sm space-y-2 opacity-80">
+                        <li>• Fixed volume, no fixed shape</li>
+                        <li>• They flow (fluids)</li>
+                        <li>• Moderate attraction</li>
+                    </ul>
+                </div>
+                <!-- Gas -->
+                <div class="group p-6 glass-card rounded-3xl hover:border-purple-500 transition-all">
+                    <i class="fas fa-wind text-3xl text-purple-500 mb-4 group-hover:-translate-y-1 transition-all"></i>
+                    <h4 class="font-black text-xl mb-2">Gases</h4>
+                    <ul class="text-sm space-y-2 opacity-80">
+                        <li>• No fixed shape or volume</li>
+                        <li>• Highly compressible</li>
+                        <li>• Weakest attraction</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Evaporation -->
+        <section class="glass-card p-8 rounded-[2rem] bg-indigo-600 text-white topper-hide overflow-hidden relative">
+            <div class="relative z-10 space-y-4">
+                <h3 class="text-3xl font-black">Evaporation Cooling</h3>
+                <p class="opacity-90 leading-relaxed max-w-xl">
+                    Why do we wear cotton in summer? Evaporation absorbs heat from our body, leaving us feeling cool. This is a <b>surface phenomenon</b>.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-4">
+                    <span class="px-3 py-1 bg-white/20 rounded-full text-xs font-bold">Temp ↑ = Evap ↑</span>
+                    <span class="px-3 py-1 bg-white/20 rounded-full text-xs font-bold">Surface Area ↑ = Evap ↑</span>
+                    <span class="px-3 py-1 bg-white/20 rounded-full text-xs font-bold">Humidity ↑ = Evap ↓</span>
+                </div>
+            </div>
+            <i class="fas fa-sun absolute -bottom-10 -right-10 text-[12rem] opacity-10 rotate-12"></i>
+        </section>
+
+        <!-- Footer Nav -->
+        <footer class="flex justify-between items-center py-10">
+            <a href="index.html" class="text-sm font-bold opacity-50 hover:opacity-100 transition-opacity">
+                <i class="fas fa-chevron-left mr-2"></i> Dashboard
+            </a>
+            <a href="ch2.html" class="p-4 px-8 bg-slate-900 dark:bg-slate-700 text-white rounded-2xl font-bold shadow-lg shadow-slate-900/20 hover:bg-indigo-600 transition-all">
+                Chapter 2 <i class="fas fa-chevron-right ml-2"></i>
+            </a>
+        </footer>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            document.getElementById('themeIcon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        function toggleToddler() {
+            document.body.classList.toggle('toddler-mode');
+        }
+
+        function toggleTopper() {
+            document.body.classList.toggle('topper-mode');
+            const isTopper = document.body.classList.contains('topper-mode');
+            document.getElementById('topperLabel').innerText = isTopper ? 'Exit Focus' : 'Topper';
+        }
+    </script>
+</body>
+</html>
